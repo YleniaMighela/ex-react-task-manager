@@ -31,10 +31,13 @@ function App() {
   useEffect(() => {
     fetch(`${apiUrl}/tasks`)
       .then(res => res.json())
-      .then((data) => { setTasks(data) })
+      .then((data) => setTasks(data))
+
+
       .catch(err => console.error('Errore fetch:', err));
   }, []);
 
+  // console.log(tasks);
 
   return (
     <>
