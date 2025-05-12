@@ -1,10 +1,22 @@
+// importo react-router
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// importo il Layout
+import DefaultLayout from "./layout/DefaultLayout";
 
 function App() {
 
 
   return (
     <>
-      <h1>EX  - Task Manager Avanzato</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<DefaultLayout />} >
+
+          </Route>
+        </Routes>
+      </BrowserRouter>
+
     </>
   )
 }
