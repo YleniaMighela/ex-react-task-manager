@@ -6,17 +6,17 @@ export default function Header() {
 
     return (
         <header>
-            <nav>
+            <nav className="navbar">
+                <div className="navbar-left">
+                    <NavLink to="/"> <h1>TaskBool</h1></NavLink>
 
-                <NavLink to="/"> <h1>EX  - Task Manager Avanzato</h1></NavLink>
+                </div>
 
-                <NavLink to="/elenco"> elenco dei task</NavLink>
-                <NavLink to="/form"> aggiungere</NavLink>
-
+                <div className="navbar-right">
+                    <NavLink to="/elenco"> Lista dei task</NavLink>
+                    <NavLink to="/form"> Aggiungi il tuo task</NavLink>
+                </div>
             </nav>
-
         </header>
-
-
     );
 }
