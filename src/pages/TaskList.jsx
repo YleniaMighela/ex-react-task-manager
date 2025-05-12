@@ -2,7 +2,10 @@ export default function TaskList() {
 
 
     return (
-        <h3>mostrerà l'elenco dei task</h3>
+        <div className="task-list">
+            <h3>Mostrerà l'elenco dei task</h3>
+
+        </div>
 
     );
 }

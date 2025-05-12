@@ -48,3 +48,26 @@ a {
     font-size: 20px;
     line-height: 25px;
 }
+
+/* TASKLIST */
+.task-list {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    padding: 3%;
+    margin: 20%;
+    background-color: #f9f9f9;
+}
+
+
+/* ADDTASK */
+.add-task {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    padding: 3%;
+    margin: 20%;
+    background-color: #f9f9f9;
+}
