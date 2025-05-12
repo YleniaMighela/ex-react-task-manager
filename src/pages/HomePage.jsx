@@ -3,6 +3,7 @@
 export default function HomePage() {
 
 
+
     return (
         <div className="home">
 
@@ -13,6 +14,8 @@ export default function HomePage() {
                 Inizia ora a semplificare la tua giornata. Perché ogni task completato è un passo verso i tuoi obiettivi.
 
             </p>
+
+
         </div>
 
 
