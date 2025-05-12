@@ -1,4 +1,6 @@
-export default function TaskRow({ task }) {
+import { memo } from 'react';
+
+function TaskRow({ task }) {
 
     return (
         <tr >
@@ -14,3 +16,4 @@ export default function TaskRow({ task }) {
         </tr>
     );
 }
+export default memo(TaskRow);
