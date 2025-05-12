@@ -26,19 +26,19 @@ import HomePage from "./pages/HomePage";
 
 function App() {
   // deifinisco lo useState per memorizzate i task
-  const [task, setTask] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     fetch(`${apiUrl}/tasks`)
       .then(res => res.json())
-      .then(data => console.log('Dati ricevuti:', data))
+      .then((data) => { setTasks(data) })
       .catch(err => console.error('Errore fetch:', err));
   }, []);
 
 
   return (
     <>
-      <GlobalContext.Provider value={{ task }}>
+      <GlobalContext.Provider value={{ tasks }}>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />} >
