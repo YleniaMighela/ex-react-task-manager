@@ -10,10 +10,12 @@ a {
 }
 
 /* HEADER */
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #ffe0cc;
 }
 
 .navbar-left h1 {
@@ -41,7 +43,7 @@ a {
     width: 50%;
     padding: 3%;
     margin: 20%;
-    background-color: #f9f9f9;
+    background-color: #ffe0cc;
 }
 
 .home p {
@@ -67,7 +69,7 @@ h3 {
 /* TABLE */
 
 table {
-    border: 1px solid black;
+
     width: 100%;
     border-collapse: collapse;
 }
@@ -76,12 +78,19 @@ th,
 td {
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #0a0a0a;
+    border: 1px solid black;
 }
 
 th {
     background-color: rgba(255, 68, 0, 0.473);
 }
+
+tbody tr:hover {
+    background-color: #ffe0cc;
+    cursor: pointer;
+
+}
+
 
 /* ADDTASK */
 .add-task {
