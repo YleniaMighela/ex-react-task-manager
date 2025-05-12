@@ -31,3 +31,20 @@ a {
     color: orangered;
     font-weight: 600;
 }
+
+
+/* HOMEPAGE */
+.home {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    padding: 3%;
+    margin: 20%;
+    background-color: #f9f9f9;
+}
+
+.home p {
+    font-size: 20px;
+    line-height: 25px;
+}
