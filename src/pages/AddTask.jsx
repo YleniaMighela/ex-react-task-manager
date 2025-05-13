@@ -17,14 +17,28 @@ export default function AddTask() {
         if ([...nameTitle].some(c => symbols.includes(c)))
             return "Il nome non puòcontenere caratteri speciali"
         return ""
-    }, [nameTitle])
+    }, [nameTitle]);
+
+    // all'invio del form se è tutto ok
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const newTask = {
+            title: nameTitle.trim(),
+            description: descriptionRef.current.value,
+            status: statusRef.current.value,
+
+        }
+        console.log(newTask);
+
+    }
 
     return (
         <>
             <div className='container_add-task'>
                 <h1>Aggiungi una task</h1>
 
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="add-task">
                         {/* sezione per inserimento nome task */}
                         <label>
@@ -64,6 +78,7 @@ export default function AddTask() {
                             </select>
                         </label>
 
+                        <button type='submit'> Aggiungi Task</button>
                     </div>
                 </form>
 
