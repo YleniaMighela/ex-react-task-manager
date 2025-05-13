@@ -93,12 +93,38 @@ tbody tr:hover {
 
 
 /* ADDTASK */
-.add-task {
+
+.container_add-task {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
+    gap: 20px;
     width: 50%;
-    padding: 3%;
-    margin: 20%;
-    background-color: #f9f9f9;
+    padding: 2%;
+    margin: 10% auto;
+    background-color: #ffe0cc;
+    color: orangered;
+    border-radius: 10px;
+}
+
+
+.add-task {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+input,
+textarea,
+select,
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
 }
