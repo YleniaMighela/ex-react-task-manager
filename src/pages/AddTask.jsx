@@ -1,6 +1,6 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useMemo } from 'react'
 
-
+const symbols = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~";
 
 export default function AddTask() {
 
@@ -10,6 +10,14 @@ export default function AddTask() {
     //  campo non controllato
     const descriptionRef = useRef();
     const statusRef = useRef();
+
+    const titleError = useMemo(() => {
+        if (!nameTitle.trim())
+            return "Il campo non può essere vuoto."
+        if ([...nameTitle].some(c => symbols.includes(c)))
+            return "Il nome non puòcontenere caratteri speciali"
+        return ""
+    }, [nameTitle])
 
     return (
         <>
@@ -27,6 +35,10 @@ export default function AddTask() {
                                 onChange={(e) => setNameTitle(e.target.value)}
                                 placeholder='Inserisci nome del task'
                             />
+                            {titleError &&
+                                <p className='mex_error'>{titleError}</p>
+                            }
+
                         </label>
 
 
