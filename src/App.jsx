@@ -3,8 +3,8 @@ const apiUrl = import.meta.env.VITE_API_URL;
 // console.log('API URL:', import.meta.env.VITE_API_URL);
 
 
-// importo il GlobalCOntext
-import GlobalContext from "./context/GlobalContext.jsx";
+// importo il GlobalProvider
+import { GlobalProvider } from "./context/GlobalContext";
 
 // importo useState e useEffect
 import { useState, useEffect } from "react";
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <>
-      <GlobalContext.Provider value={{ tasks }}>
+      <GlobalProvider>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />} >
@@ -51,7 +51,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
-      </GlobalContext.Provider>
+      </GlobalProvider>
     </>
   )
 }
