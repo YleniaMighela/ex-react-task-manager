@@ -10,7 +10,7 @@ export function GlobalProvider({ children }) {
     const taskData = useTasks();
 
     return (
-        <GlobalContext.Provider value={taskData}>
+        <GlobalContext.Provider value={{ ...taskData }}>
             {children}
         </GlobalContext.Provider>
     );
