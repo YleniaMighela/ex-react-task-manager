@@ -35,17 +35,27 @@ export default function useTasks() {
 
         // se è vero allora crei un nuovo array con i vecchi task e la nuova task
         setTasks(prevTasks => [...prevTasks, task])
-
-
-
     }
 
 
 
 
     // funzione removeTask
-    function removeTask() {
+    async function removeTask(taskId) {
 
+        const res = await fetch(`${apiUrl}/tasks/${taskId}`, {
+            // oggetto di configurazione
+            method: 'DELETE',
+        });
+
+        // destruttuto l'oggetto
+        const { success, message } = await res.json();
+
+        // se success è falso lancia un messaggio di errore
+        if (!success) throw new Error(message);
+
+        // altrimenti creo un nuovo array che contiene tutte le task tranne quelle con l'id da eliminare
+        setTasks(prevTasks => prevTasks.filter(t => t.id !== taskId));
     };
 
     // funzione updateTask
