@@ -2,13 +2,14 @@ import { useContext } from "react";
 import GlobalContext from "../context/GlobalContext";
 
 
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function TaskDetail() {
 
     // estrae il parametro id dall'oggetto
     const { id } = useParams();
-    const { tasks } = useContext(GlobalContext)
+    const { tasks, removeTask } = useContext(GlobalContext)
+    const navigate = useNavigate();
 
     // cerco con il metodo find il primo elemento che soddisferà la condizione con l'id selezionato
     const task = tasks.find(t => t.id === parseInt(id));
@@ -19,9 +20,26 @@ export default function TaskDetail() {
     }
 
     // funzione per eliminare la task
-    const handleDelete = () => {
-        console.log("ELimina task");
+    const handleDelete = async (e) => {
+        // console.log("ELimina task");
+        e.preventDefault();
 
+        try {
+            await removeTask(task.id);
+            alert("Task eliminata!")
+            navigate("/elenco")
+        } catch (error) {
+            console.log(error);
+            alert(error.message);
+
+        }
+
+        // Al click su "Elimina Task", chiamare removeTask passando l'id del task.
+        // Se la funzione esegue correttamente l'operazione:
+        // Mostrare un alert di conferma dell’avvenuta eliminazione.
+        // Reindirizzare l’utente alla lista dei task (/).
+        // Se la funzione lancia un errore:
+        // Mostrare un alert con il messaggio di errore ricevuto.
     }
     return (
 
