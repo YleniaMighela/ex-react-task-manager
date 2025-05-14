@@ -150,3 +150,8 @@ button:active {
     color: red;
     font-weight: 600;
 }
+
+.detail_task {
+    color: black;
+    margin-right: 1%;
+}
