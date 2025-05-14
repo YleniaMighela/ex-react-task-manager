@@ -16,6 +16,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DefaultLayout from "./layout/DefaultLayout";
 
 // importo le pagine
+import TaskDetail from "./pages/TaskDetail";
 import TaskList from "./pages/TaskList";
 import AddTask from "./pages/AddTask";
 import HomePage from "./pages/HomePage";
@@ -48,6 +49,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/elenco" element={<TaskList />} />
               <Route path="/form" element={<AddTask />} />
+              <Route path="/task/:id" element={<TaskDetail />} />
             </Route>
           </Routes>
         </BrowserRouter>
