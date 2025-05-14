@@ -1,8 +1,11 @@
-import { useState, useRef, useMemo } from 'react'
+import { useState, useRef, useMemo, useContext } from 'react'
+import GlobalContext from '../context/GlobalContext';
 
 const symbols = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~";
 
 export default function AddTask() {
+
+    const { addTask } = useContext(GlobalContext);
 
     // campo controllato
     const [nameTitle, setNameTitle] = useState("");
@@ -20,7 +23,7 @@ export default function AddTask() {
     }, [nameTitle]);
 
     // all'invio del form se è tutto ok
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const newTask = {
@@ -29,7 +32,18 @@ export default function AddTask() {
             status: statusRef.current.value,
 
         }
-        console.log(newTask);
+        // console.log(newTask);
+        try {
+            await addTask(newTask);
+            alert("Task creata")
+            // reset dei campi del form,setNameTitle, gli altri due campi non controllati
+            setNameTitle("");
+            descriptionRef.current.value = "";
+            statusRef.current.value = "";
+        } catch (error) {
+            alert(error.message);
+
+        }
 
     }
 
@@ -71,7 +85,7 @@ export default function AddTask() {
                             <select
                                 ref={statusRef}
                             >
-                                <option value="">To do</option>
+                                <option value="To do">To do</option>
                                 <option value="Doing">Doing</option>
                                 <option value="Done">Done</option>
 
