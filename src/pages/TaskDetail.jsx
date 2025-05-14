@@ -25,13 +25,23 @@ export default function TaskDetail() {
     }
     return (
 
-        <div className='container_add-task'>
+        <div className='container_detail-task'>
             <h1>Dettaglio della task</h1>
             <div className="add-task">
-                <p><strong className="detail_task">Nome task:</strong>{task.title}</p>
-                <p><strong className="detail_task">Descrizione:</strong>{task.description}</p>
-                <p><strong className="detail_task">Stato:</strong>{task.status}</p>
-                <p><strong className="detail_task">Data di creazione:</strong>{new Date(task.createdAt).toLocaleDateString()}</p>
+                <p>
+                    <strong className="detail_task">Nome task:</strong>
+                    <em>{task.title}</em>
+                </p>
+                <p>
+                    <strong className="detail_task">Descrizione:</strong>
+                    <em>{task.description}</em>
+                </p>
+                <p>
+                    <strong className="detail_task">Stato:</strong>
+                    <em>{task.status}</em></p>
+                <p><strong className="detail_task">Data di creazione:</strong>
+                    <em>{new Date(task.createdAt).toLocaleDateString()}</em>
+                </p>
                 <button onClick={handleDelete}>Elimina task</button>
             </div>
 

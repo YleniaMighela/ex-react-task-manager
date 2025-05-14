@@ -151,7 +151,28 @@ button:active {
     font-weight: 600;
 }
 
+
+/* DETAILTASK */
+
+.container_detail-task {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 50%;
+    padding: 2%;
+    margin: 10% auto;
+    background-color: #ffe0cc;
+    color: rgba(248, 89, 32, 0.849);
+    border-radius: 10px;
+}
+
 .detail_task {
     color: black;
     margin-right: 1%;
+}
+
+em {
+    font-weight: 800;
+
 }
