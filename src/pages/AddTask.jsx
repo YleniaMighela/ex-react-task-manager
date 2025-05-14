@@ -1,4 +1,5 @@
 import { useState, useRef, useMemo, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import GlobalContext from '../context/GlobalContext';
 
 const symbols = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~";
@@ -6,7 +7,7 @@ const symbols = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~";
 export default function AddTask() {
 
     const { addTask } = useContext(GlobalContext);
-
+    const navigate = useNavigate();
     // campo controllato
     const [nameTitle, setNameTitle] = useState("");
 
@@ -40,6 +41,8 @@ export default function AddTask() {
             setNameTitle("");
             descriptionRef.current.value = "";
             statusRef.current.value = "";
+            navigate("/elenco");
+
         } catch (error) {
             alert(error.message);
 
