@@ -176,3 +176,44 @@ em {
     font-weight: 800;
 
 }
+
+/* MODALE */
+.container_modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 50px;
+    width: 20%;
+    height: 20%;
+    z-index: 1000;
+    font-weight: 700;
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    background-color: rgba(245, 137, 30, 0.801);
+    border-radius: 10px;
+
+}
+
+h2 {
+    color: white;
+}
+
+.button_modal {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.button_modal button {
+    /* Resetta CSSdei bottoni per rimuovere lo stile di default */
+    all: unset;
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    width: 25%;
+
+}

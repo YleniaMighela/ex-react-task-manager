@@ -1,18 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import GlobalContext from "../context/GlobalContext";
-
-
 import { useParams, useNavigate } from "react-router-dom";
+
+import Modal from "../components/Modal"
 
 export default function TaskDetail() {
 
     // estrae il parametro id dall'oggetto
     const { id } = useParams();
-    const { tasks, removeTask } = useContext(GlobalContext)
     const navigate = useNavigate();
+    const { tasks, removeTask } = useContext(GlobalContext)
 
     // cerco con il metodo find il primo elemento che soddisferà la condizione con l'id selezionato
     const task = tasks.find(t => t.id === parseInt(id));
+
+    // creo la variabile di stato per gestire l'apertuta o no della modale
+
+    const [showModal, setShowModal] = useState(false);
 
     // se la task non è stata trovata ritornami un "messaggio"
     if (!task) {
@@ -54,7 +58,17 @@ export default function TaskDetail() {
                 <p><strong className="detail_task">Data di creazione:</strong>
                     <em>{new Date(task.createdAt).toLocaleDateString()}</em>
                 </p>
-                <button onClick={handleDelete}>Elimina task</button>
+                <button onClick={() => setShowModal(true)}>Elimina task</button>
+
+                <Modal
+                    title="Conferma di eliminare"
+                    content={<span>Confermi di eliminare?</span>}
+                    show={showModal}
+                    onClose={() => setShowModal(false)}
+                    onConfirm={handleDelete}
+                    confirmText="Elimina"
+                />
+
             </div>
 
 
