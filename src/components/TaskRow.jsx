@@ -1,10 +1,15 @@
 import { memo } from 'react';
+import { Link } from "react-router-dom"
+
 
 function TaskRow({ task }) {
 
     return (
         <tr >
-            <td >{task.title}</td>
+
+
+            <td >  <Link to={`/task/${task.id}`}>{task.title}</Link></td>
+
             <td style={{
                 backgroundColor:
                     task.status === 'To do' ? '#f87171' :
@@ -17,3 +22,4 @@ function TaskRow({ task }) {
     );
 }
 export default memo(TaskRow);
+
