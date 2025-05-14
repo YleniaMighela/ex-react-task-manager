@@ -34,12 +34,6 @@ export default function TaskDetail() {
 
         }
 
-        // Al click su "Elimina Task", chiamare removeTask passando l'id del task.
-        // Se la funzione esegue correttamente l'operazione:
-        // Mostrare un alert di conferma dell’avvenuta eliminazione.
-        // Reindirizzare l’utente alla lista dei task (/).
-        // Se la funzione lancia un errore:
-        // Mostrare un alert con il messaggio di errore ricevuto.
     }
     return (
 
