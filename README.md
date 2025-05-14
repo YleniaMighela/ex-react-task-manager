@@ -1,12 +1,9 @@
-# React + Vite
+<!-- USESTATE:  hook di React che permette di gestire lo stato all'interno di un componente 
+const [stato, setStato]= useState (valoreIniziale) 
+stato: è il valore attuale dello stato
+setStato: è la funzione che aggiorma òp stato
+(valoreIniziale): è il valore iniziale-->
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<!-- REACT.MEMO(): è una funzione che permette di evitare il re-rendering di un componente se le sue props non cambiano-->
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<!-- USEREF: hook che ci permette di mantenere un valore che non cambia al re-render del componente -->

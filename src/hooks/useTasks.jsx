@@ -18,9 +18,29 @@ export default function useTasks() {
 
 
     // funzione addTask
-    function addTask() {
+    async function addTask(newTask) {
 
-    };
+        const res = await fetch(`${apiUrl}/tasks`, {
+            // oggetto di configurazione
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', },
+            body: JSON.stringify(newTask),
+        });
+
+        // destruttuto l'oggetto
+        const { success, message, task } = await res.json();
+
+        // se success è falso lancia un messaggio di errore
+        if (!success) throw new Error(message);
+
+        // se è vero allora crei un nuovo array con i vecchi task e la nuova task
+        setTasks(prevTasks => [...prevTasks, task])
+
+
+
+    }
+
+
 
 
     // funzione removeTask
@@ -34,4 +54,5 @@ export default function useTasks() {
     };
 
     return { tasks, addTask, removeTask, updateTask };
-}
+
+};
