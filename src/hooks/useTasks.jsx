@@ -59,7 +59,23 @@ export default function useTasks() {
     };
 
     // funzione updateTask
-    function updateTask() {
+    async function updateTask(updatedTask) {
+
+        const res = await fetch(`${apiUrl}/tasks/${updatedTask}`, {
+            // oggetto di configurazione
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json', },
+            body: JSON.stringify(updatedTask),
+        });
+
+        // destruttuto l'oggetto
+        const { success, message, newTask } = await res.json();
+
+        // se success è falso lancia un messaggio di errore
+        if (!success) throw new Error(message);
+
+        // altrimenti se trova la task con l'id uguale a quella aggiornata, ritornami la versione aggiornata
+        setTasks(prevTasks => prevTasks.map(t => t.id === newTask.id ? newTask : t));
 
     };
 
