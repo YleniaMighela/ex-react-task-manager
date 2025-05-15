@@ -80,10 +80,11 @@ export default function TaskDetail() {
                 <p><strong className="detail_task">Data di creazione:</strong>
                     <em>{new Date(task.createdAt).toLocaleDateString()}</em>
                 </p>
-                <button onClick={() => setShowDeleteModal(true)}>Elimina task</button>
-                <button onClick={() => setShowEditModal(true)}>Modifica task</button>
 
-
+                <div className="form_button">
+                    <button onClick={() => setShowDeleteModal(true)}>Elimina task</button>
+                    <button onClick={() => setShowEditModal(true)}>Modifica task</button>
+                </div>
                 {/* MODALE PER ELIMINAZIONE DEL TASK */}
                 <Modal
                     title="Conferma di eliminare"
