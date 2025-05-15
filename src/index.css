@@ -253,33 +253,3 @@ h2 {
     flex-direction: column;
     gap: 15px;
 }
-
-/* .update_task label {
-    display: flex;
-    flex-direction: column;
-    font-size: 1rem;
-    color: #333;
-}
-
-.update_task input,
-.update_task textarea,
-.update_task select {
-    margin-top: 6px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-.update_task input:focus,
-.update_task textarea:focus,
-.update_task select:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-.update_task textarea {
-    resize: vertical;
-    min-height: 80px;
-} */
