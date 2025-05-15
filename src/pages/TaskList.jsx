@@ -13,7 +13,8 @@ export default function TaskList() {
     // rappresenta la direzione
     const [sortOrder, setSortOrder] = useState(1);
 
-
+    // rappresenta la ricerca
+    const [searchQuery, setSearchQuery] = useState("");
 
     // funzione che permette di decidere come ordinare 
     const handleSort = (field) => {
@@ -67,6 +68,17 @@ export default function TaskList() {
     return (
         <>
             <h3>Lista dei task</h3>
+            <div className="search">
+                <label>
+                    Cerca:
+                    <input
+                        type="text"
+                        value={searchQuery}
+                        onChange={e => setSearchQuery(e.target.value)}
+                        placeholder='Rcerca un task'
+                    />
+                </label>
+            </div>
 
             <div className="task-list">
                 <div className="table">
