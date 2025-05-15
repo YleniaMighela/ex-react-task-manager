@@ -35,34 +35,36 @@ export default function TaskList() {
     }
 
     // utilizzo useMemo per calcolare solo quando cambia il valore di tasks, sortBy o sortOrder
-    const sortedTasks = useMemo(() => {
+    const searchAndSortedTasks = useMemo(() => {
         // creo una copia dell'array tasks
-        const sorted = [...tasks].sort((a, b) => {
-            // inizializzo la variabile result
-            let result = 0;
+        const sorted = [...tasks]
+            .filter(t => (t.title.toLowerCase().includes(searchQuery.toLowerCase())))
+            .sort((a, b) => {
+                // inizializzo la variabile result
+                let result = 0;
 
-            // in base al valore di sortBy, ordino l'array
-            if (sortBy === 'title') {
-                // se sortBy è uguale a title, ordino in base al titolo
-                result = a.title.localeCompare(b.title);
+                // in base al valore di sortBy, ordino l'array
+                if (sortBy === 'title') {
+                    // se sortBy è uguale a title, ordino in base al titolo
+                    result = a.title.localeCompare(b.title);
 
-            } else if (sortBy === 'status') {
-                // se sortBy è uguale a status, ordino in base logico, come definito nell'oggetto satusOrder
-                result = statusOrder[a.status] - statusOrder[b.status];
+                } else if (sortBy === 'status') {
+                    // se sortBy è uguale a status, ordino in base logico, come definito nell'oggetto satusOrder
+                    result = statusOrder[a.status] - statusOrder[b.status];
 
-            } else if (sortBy === 'createdAt') {
-                // se sortBy è uguale a createdAt,converti la data in numeri
-                result = new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
-            }
+                } else if (sortBy === 'createdAt') {
+                    // se sortBy è uguale a createdAt,converti la data in numeri
+                    result = new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+                }
 
-            // moltiplico per 1 o -1 in base al valore di sortOrde e quindi sceglie se è crescente o decrescente
-            return result * sortOrder;
-        });
+                // moltiplico per 1 o -1 in base al valore di sortOrde e quindi sceglie se è crescente o decrescente
+                return result * sortOrder;
+            });
 
         // restituisco l'array ordinato
         return sorted;
 
-    }, [tasks, sortBy, sortOrder]);
+    }, [tasks, sortBy, sortOrder, searchQuery]);
 
 
     return (
@@ -92,7 +94,7 @@ export default function TaskList() {
                         </thead>
 
                         <tbody>
-                            {sortedTasks.map((task) => (
+                            {searchAndSortedTasks.map((task) => (
 
                                 <TaskRow key={task.id} task={task} />
                             ))}
