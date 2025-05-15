@@ -47,9 +47,9 @@ export default function TaskDetail() {
     }
 
     // funzione per MODIFICARE la task
-    const handleEdit = async () => {
+    const handleEdit = async (updatedTask) => {
         try {
-            await updateTask(updateTask);
+            await updateTask(updatedTask);
             setShowEditModal(false)
         } catch (error) {
             console.log(error);
