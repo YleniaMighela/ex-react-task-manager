@@ -86,6 +86,11 @@ td {
 
 th {
     background-color: rgba(255, 68, 0, 0.473);
+    cursor: pointer;
+}
+
+th:hover {
+    background-color: #ffe0cc;
 }
 
 tbody tr:hover {
